@@ -1,3 +1,27 @@
+# Practice with Form
+
+This is a simple HTML form created for practicing various form input types in HTML.  
+The form collects basic information such as name, email, password, gender, favorite fruit, and comments.
+
+## Features
+
+- **Text Inputs**: First name and last name fields
+- **Email and Password Inputs**
+- **Radio Buttons**: Select gender (male or female)
+- **Dropdown List**: Choose your favorite fruit
+- **Textarea**: Add additional comments
+- **Buttons**: Submit and Reset functionality
+
+## How to Use
+
+1. Open the file in your browser by simply double-clicking the `.html` file or dragging it to any browser window.
+2. Fill out the fields in the form.
+3. Click **Submit** to send your data (currently does not send anywhere).
+4. Click **Reset** to clear all fields.
+
+## Code Preview
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>

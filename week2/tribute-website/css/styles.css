@@ -1,0 +1,266 @@
+/* --- Global layout --- */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: #111827;
+}
+
+/* Centered content container */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* --- Header & Navigation --- */
+
+.site-header {
+    background: #020617;
+    color: #f9fafb;
+    padding: 18px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.site-title {
+    font-size: 1.6rem;
+    letter-spacing: 0.05em;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+    gap: 18px;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #e5e7eb;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+}
+
+.nav-menu a:hover {
+    color: #facc15;
+    border-color: #facc15;
+}
+
+.nav-menu a:visited {
+    color: #e5e7eb; /* visited renk değişmesin */
+}
+
+/* --- Hero / Home section --- */
+
+.hero-section {
+    background: #020617;
+    color: #e5e7eb;
+    padding: 60px 0 50px;
+}
+
+.hero-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.3fr);
+    gap: 40px;
+    align-items: center;
+}
+
+.hero-image-wrapper {
+    background: #0b1120;
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+}
+
+.hero-image {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+    margin-bottom: 12px;
+}
+
+.hero-caption {
+    font-size: 0.9rem;
+    color: #e5e7eb;
+    line-height: 1.5;
+}
+
+.hero-caption-author {
+    display: block;
+    margin-top: 4px;
+    font-weight: 600;
+    color: #facc15;
+}
+
+.hero-text h2 {
+    font-size: 1.9rem;
+    margin-bottom: 16px;
+}
+
+.hero-text p {
+    font-size: 0.98rem;
+    line-height: 1.7;
+    margin-bottom: 10px;
+    color: #d1d5db;
+}
+
+/* --- Info / Biography section --- */
+
+.info-section {
+    background: #f9fafb;
+    padding: 60px 0 70px;
+}
+
+.section-title {
+    font-size: 1.7rem;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #111827;
+}
+
+.info-section .container {
+    max-width: 900px;
+}
+
+.info-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.08);
+    padding: 24px 22px;
+    margin-top: 18px;
+}
+
+.info-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #111827;
+}
+
+.info-card p {
+    font-size: 0.96rem;
+    color: #4b5563;
+    line-height: 1.7;
+    margin-bottom: 8px;
+}
+
+/* --- Books section --- */
+
+.books-section {
+    background: #111827;
+    color: #e5e7eb;
+    padding: 60px 0 70px;
+}
+
+.books-section .section-title {
+    color: #f9fafb;
+}
+
+.section-intro {
+    text-align: center;
+    font-size: 0.96rem;
+    color: #9ca3af;
+    margin-bottom: 26px;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.book-card {
+    background: #020617;
+    border-radius: 12px;
+    padding: 18px 16px 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+    border: 1px solid #1f2937;
+}
+
+.book-title {
+    font-size: 1.05rem;
+    margin-bottom: 6px;
+}
+
+.book-year {
+    font-size: 0.86rem;
+    color: #fbbf24;
+    margin-bottom: 8px;
+}
+
+.book-desc {
+    font-size: 0.9rem;
+    color: #d1d5db;
+    line-height: 1.6;
+}
+
+/* --- Footer --- */
+
+.site-footer {
+    background: #020617;
+    color: #9ca3af;
+    text-align: center;
+    padding: 14px 0;
+    font-size: 0.85rem;
+    border-top: 1px solid #1f2937;
+}
+
+/* --- Responsive tweaks --- */
+@media (max-width: 1024px) {
+    .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-wrapper {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-text h2 {
+        text-align: center;
+    }
+}
+@media (max-width: 480px) {
+    .site-title {
+        font-size: 1.3rem;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+@media (max-width: 360px) {
+    .hero-text h2 {
+        font-size: 1.6rem;
+    }
+}

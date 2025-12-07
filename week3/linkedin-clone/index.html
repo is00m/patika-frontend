@@ -1,0 +1,280 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header> 
+        <nav class="navbar navbar-expand-md bg-body-tertiary" data-bs-theme="dark" style="border: 1px solid gray;">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="fa-brands fa-linkedin"></i></a>
+            <form class="d-none d-lg-flex align-items-center ms-3" role="search">
+              <input class="form-control me-2 search-input" type="search" placeholder="Ara" aria-label="Search"/>
+            </form>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <form class="d-flex d-lg-none my-2" role="search">
+                <input class="form-control me-2" type="search" placeholder="Ara" aria-label="Search"/>
+              </form>
+              <ul class="navbar-nav mb-2 mb-lg-0 ms-auto align-items-lg-center gap-lg-1">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">
+                    <i class="fa-solid fa-house"></i>
+                    <span>Ana Sayfa</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <i class="fa-solid fa-user-group"></i>
+                    <span>Ağım</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <i class="fa-solid fa-briefcase"></i>
+                    <span>İş İlanları</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <i class="fa-regular fa-comment-dots"></i>
+                    <span>Mesajlaşma</span>
+                  </a>
+                </li>
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Ben</span>
+                  </a>
+                  <ul class="dropdown-menu dropdown-menu-end">
+                    <li><a class="dropdown-item" href="#">Profil</a></li>
+                    <li><a class="dropdown-item" href="#">Ayarlar</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Çıkış</a></li>
+                  </ul>
+                </li>
+                <li class="nav-item nav-divider d-none d-lg-block" aria-hidden="true"></li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <i class="fa-solid fa-table-cells"></i>
+                    <span>İş için</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">
+                    <i class="fa-solid fa-chalkboard"></i>
+                    <span>Learning</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+        </div>
+        </nav>
+    </header>
+    <main class="container py-4">
+      <div class="row g-3">
+        <div class="col-sm-12 col-md-4 col-lg-3">
+          <div class="sticky-col">
+            <div class="card glass-card mb-3">
+              <div class="card-body text-center">
+                <div class="avatar-circle mb-2">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <h6 class="mb-1">İsim Soyisim</h6>
+                <p class="text-muted small mb-3">Pozisyon · Şehir</p>
+                <div class="d-flex justify-content-between small stat-line">
+                  <span>Profil görüntülemeleri</span>
+                  <span class="fw-semibold text-primary">0</span>
+                </div>
+                <div class="d-flex justify-content-between small stat-line">
+                  <span>Gönderi gösterimi</span>
+                  <span class="fw-semibold text-primary">0</span>
+                </div>
+              </div>
+            </div>
+            <div class="card glass-card">
+              <div class="list-group list-group-flush">
+                <a href="#" class="list-group-item bg-transparent text-light">
+                  <i class="fa-regular fa-bookmark me-2"></i> <small>Kaydedilen öğeler</small> 
+                </a>
+                <a href="#" class="list-group-item bg-transparent text-light">
+                  <i class="fa-solid fa-user-group me-2"></i> <small>Gruplar</small>
+                </a>
+                <a href="#" class="list-group-item bg-transparent text-light">
+                  <i class="fa-regular fa-newspaper me-2"></i> <small>Haber bültenleri</small>
+                </a>
+                <a href="#" class="list-group-item bg-transparent text-light">
+                  <i class="fa-regular fa-calendar me-2"></i> <small>Etkinlikler</small>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-8 col-lg-6">
+          <div class="card glass-card mb-3">
+            <div class="card-body d-flex align-items-center gap-2">
+              <div class="avatar-circle small">
+                <i class="fa-solid fa-user"></i>
+              </div>
+              <input type="text" class="form-control post-input text-light bg-dark" placeholder="Gönderi başlatın">
+            </div>
+            <div class="card-body pt-0 d-flex justify-content-around text-muted small">
+              <a href="#" class="text-decoration-none text-success"><i class="fa-solid fa-image me-1"></i>Fotoğraf</a>
+              <a href="#" class="text-decoration-none text-info"><i class="fa-solid fa-video me-1"></i>Video</a>
+              <a href="#" class="text-decoration-none text-warning"><i class="fa-regular fa-note-sticky me-1"></i>Yazı</a>
+            </div>
+          </div>
+          <div class="card glass-card post-card">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <div class="avatar-circle xs me-2">
+                  <img src="assets/patika-avatar.png" alt="" class="avatar-img">
+                </div>
+                <div>
+                  <div class="fw-semibold">Patika.dev</div>
+                  <small class="text-muted">4 gün · 96.822 takipçi</small>
+                </div>
+              </div>
+              <p class="small text-light mb-3">Her zaman kod, ekran, algoritma olmaz. Bazen durup hayatın basit güzelliklerini izlemek lazım. Böyle anlar hem nefes oluyor hem de ilham. 🍃✨</p>
+              <div class="ratio ratio-16x9 mb-3 post-image">
+                <img src="https://picsum.photos/600/400?random=1" alt="Post" style="object-fit: cover;">
+              </div>
+              <div class="d-flex gap-3 text-muted small">
+                <span><i class="fa-regular fa-thumbs-up me-1"></i>Beğen</span>
+                <span><i class="fa-regular fa-comment me-1"></i>Yorum</span>
+                <span><i class="fa-solid fa-share me-1"></i>Paylaş</span>
+              </div>
+            </div>
+          </div>
+          <div class="card glass-card post-card mt-2">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <div class="avatar-circle xs me-2">
+                  <img src="assets/kodluyoruz-avatar.png" alt="" class="avatar-img">
+                </div>
+                <div>
+                  <div class="fw-semibold">Kodluyoruz</div>
+                  <small class="text-muted">2 gün · 45.320 takipçi</small>
+                </div>
+              </div>
+              <p class="small text-light mb-3">Yazılım geliştirme yolculuğunda yeni adım atıyor musunuz? Bizimle birlikte başlayın! 💻🚀 Sıfırdan başlayarak profesyonel seviyeye çıkmanın tüm adımlarını öğrenin.</p>
+              <div class="ratio ratio-16x9 mb-3 post-image">
+                <img src="https://picsum.photos/600/400?random=2" alt="Post" style="object-fit: cover;">
+              </div>
+              <div class="d-flex gap-3 text-muted small">
+                <span><i class="fa-regular fa-thumbs-up me-1"></i>Beğen</span>
+                <span><i class="fa-regular fa-comment me-1"></i>Yorum</span>
+                <span><i class="fa-solid fa-share me-1"></i>Paylaş</span>
+              </div>
+            </div>
+          </div>
+          <div class="card glass-card post-card mt-2">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <div class="avatar-circle xs me-2">
+                  <img src="assets/patika-avatar.png" alt="" class="avatar-img">
+                </div>
+                <div>
+                  <div class="fw-semibold">Patika.dev</div>
+                  <small class="text-muted">1 gün · 80.120 takipçi</small>
+                </div>
+              </div>
+              <p class="small text-light mb-3">Yeni eğitim serimiz yayında! Modern web geliştirme trendlerini ve araçlarını birlikte keşfedelim.</p>
+              <div class="ratio ratio-16x9 mb-3 post-image">
+                <img src="https://picsum.photos/600/400?random=3" alt="Post" style="object-fit: cover;">
+              </div>
+              <div class="d-flex gap-3 text-muted small">
+                <span><i class="fa-regular fa-thumbs-up me-1"></i>Beğen</span>
+                <span><i class="fa-regular fa-comment me-1"></i>Yorum</span>
+                <span><i class="fa-solid fa-share me-1"></i>Paylaş</span>
+              </div>
+            </div>
+          </div>
+          <div class="card glass-card post-card mt-2">
+            <div class="card-body">
+              <div class="d-flex align-items-center mb-3">
+                <div class="avatar-circle xs me-2">
+                  <img src="assets/kodluyoruz-avatar.png" alt="" class="avatar-img">
+                </div>
+                <div>
+                  <div class="fw-semibold">Kodluyoruz</div>
+                  <small class="text-muted">3 gün · 45.320 takipçi</small>
+                </div>
+              </div>
+              <p class="small text-light mb-3">Topluluğumuz büyüyor! Yeni katılan mentorlerimize hoş geldin diyoruz. İlham veren hikayeler yakında.</p>
+              <div class="ratio ratio-16x9 mb-3 post-image">
+                <img src="https://picsum.photos/600/400?random=4" alt="Post" style="object-fit: cover;">
+              </div>
+              <div class="d-flex gap-3 text-muted small">
+                <span><i class="fa-regular fa-thumbs-up me-1"></i>Beğen</span>
+                <span><i class="fa-regular fa-comment me-1"></i>Yorum</span>
+                <span><i class="fa-solid fa-share me-1"></i>Paylaş</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 d-md-none d-lg-block col-lg-3">
+          <div class="card glass-card mb-3">
+            <div class="card-body">
+              <h5 class="fw-bold">LinkedIn Haberler</h5>
+              <h6 class="text-muted small">Öne çıkan hikayeler</h6>
+              <ul class="list-unstyled pt-1 mb-0 news-list">
+                <li class="mb-2">Lorem ipsum dolor sit amet.
+                    <br><small class="small text-muted ">9s önce</small> 
+                </li>
+                <li class="mb-2">Lorem ipsum dolor sit amet consectetur.
+                    <br><small class="small text-muted">4s önce</small> 
+                </li>
+                <li class="mb-2">Lorem ipsum dolor sit amet consectetur.
+                    <br><small class="small text-muted">45s önce • 18.941 okuyucu</small> 
+                </li>
+                <li class="mb-2">Lorem ipsum dolor sit.
+                    <br><small class="small text-muted">15s önce </small>
+                </li>
+                <li class="mb-2">Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    <br><small class="small text-muted">58s önce • 8.661 okuyucu</small>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="card glass-card sticky-card">
+            <div class="card-body d-flex align-items-center ">
+              <i class="fa-solid fa-briefcase fa-2x me-3 text-warning"></i>
+              <div>
+                <div class="fw-semibold">Öne çıkan işler</div>
+                <small class="text-muted">Sana özel fırsatları keşfet</small>
+              </div>
+            </div>
+            <div class="card-footer text-center bg-transparent border-0">
+              <button class="btn btn-outline-light btn-sm">Takip Et</button>
+            </div>
+          </div>
+          <div class="sticky-footer glass-card footer-links mt-3 p-3 text-center">
+            <div class="d-flex flex-wrap justify-content-center gap-2 footer-links-row">
+              <a href="#" class="text-muted text-decoration-none">Hakkında</a>
+              <a href="#" class="text-muted text-decoration-none">Erişilebilirlik</a>
+              <a href="#" class="text-muted text-decoration-none">Yardım Merkezi</a>
+              <a href="#" class="text-muted text-decoration-none">Gizlilik ve Koşullar ▾</a>
+              <a href="#" class="text-muted text-decoration-none">Reklam Tercihleri</a>
+              <a href="#" class="text-muted text-decoration-none">Reklam</a>
+              <a href="#" class="text-muted text-decoration-none">Ticari Hizmetler ▾</a>
+              <a href="#" class="text-muted text-decoration-none">LinkedIn uygulamasını yükle</a>
+              <a href="#" class="text-muted text-decoration-none">Daha Fazla</a>
+            </div>
+            <div class="text-center mt-1 small text-muted">
+              <strong class="text-light">is</strong><strong class="text-primary">00</strong><strong class="text-light">m</strong><br> is00m  © 2025
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  </body>
+</html>

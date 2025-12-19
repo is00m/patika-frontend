@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>World Clocks</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="card" id="intro">
+        <p class="text1">World Clocks</p>
+        <p class="text2">Sign in with your first and last name.</p>
+        <form id="name-form" class="form">
+          <label class="field">
+            <span class="text2">First name</span>
+            <input
+              id="first-name"
+              name="firstName"
+              type="text"
+              autocomplete="given-name"
+              placeholder="Example: Elif"
+              required
+            />
+          </label>
+          <label class="field">
+            <span class="text2">Last name</span>
+            <input
+              id="last-name"
+              name="lastName"
+              type="text"
+              autocomplete="family-name"
+              placeholder="Example: Kaya"
+              required
+            />
+          </label>
+          <button class="btn" type="submit">Start</button>
+          <p id="form-error" class="error text2" role="alert"></p>
+        </form>
+      </section>
+
+      <section id="welcome" class="welcome is-hidden">
+        <h1 id="greeting" class="title text1"></h1>
+        <p class="text2">You are ready to see world time live.</p>
+      </section>
+
+      <section id="clock-section" class="clock-section is-hidden">
+        <div id="clock-grid" class="clock-grid"></div>
+      </section>
+    </main>
+
+    <script>
+      const form = document.getElementById("name-form");
+      const firstNameInput = document.getElementById("first-name");
+      const lastNameInput = document.getElementById("last-name");
+      const formError = document.getElementById("form-error");
+      const intro = document.getElementById("intro");
+      const welcome = document.getElementById("welcome");
+      const greeting = document.getElementById("greeting");
+      const clockSection = document.getElementById("clock-section");
+      const clockGrid = document.getElementById("clock-grid");
+
+      const zones = [
+        { label: "Istanbul", tz: "Europe/Istanbul" },
+        { label: "London", tz: "Europe/London" },
+        { label: "New York", tz: "America/New_York" },
+        { label: "Rio", tz: "America/Sao_Paulo" },
+        { label: "Dubai", tz: "Asia/Dubai" },
+        { label: "Mumbai", tz: "Asia/Kolkata" },
+        { label: "Tokyo", tz: "Asia/Tokyo" },
+        { label: "Sydney", tz: "Australia/Sydney" },
+      ];
+
+      let clockNodes = [];
+
+      function buildClocks() {
+        clockGrid.innerHTML = "";
+        clockNodes = zones.map((zone) => {
+          const card = document.createElement("div");
+          card.className = "clock";
+
+          const city = document.createElement("div");
+          city.className = "clock-city text1";
+          city.textContent = zone.label;
+
+          const time = document.createElement("div");
+          time.className = "clock-time";
+
+          const formatter = new Intl.DateTimeFormat("en-GB", {
+            timeZone: zone.tz,
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+          });
+
+          card.append(city, time);
+          clockGrid.appendChild(card);
+
+          return { formatter, time };
+        });
+      }
+
+      function updateClocks() {
+        const now = new Date();
+        clockNodes.forEach(({ formatter, time }) => {
+          time.textContent = formatter.format(now);
+        });
+      }
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const firstName = firstNameInput.value.trim();
+        const lastName = lastNameInput.value.trim();
+
+        if (!firstName || !lastName) {
+          formError.textContent = "Please enter your first and last name.";
+          return;
+        }
+
+        formError.textContent = "";
+        greeting.textContent = `Welcome, ${firstName} ${lastName}!`;
+
+        intro.classList.add("is-hidden");
+        welcome.classList.remove("is-hidden");
+        clockSection.classList.remove("is-hidden");
+
+        buildClocks();
+        updateClocks();
+        setInterval(updateClocks, 1000);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drum Kit</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="hero">
+        <h1>Drum Kit</h1>
+        <p>Butonlara tıkla veya klavye tuşlarını kullan.</p>
+      </header>
+
+      <section class="kit" aria-label="Drum Kit">
+        <button class="drum-button" data-sound="kick" data-key="A">
+          <span class="key">A</span>
+          <span class="label">Kick</span>
+        </button>
+        <button class="drum-button" data-sound="snare" data-key="S">
+          <span class="key">S</span>
+          <span class="label">Snare</span>
+        </button>
+        <button class="drum-button" data-sound="hihat" data-key="D">
+          <span class="key">D</span>
+          <span class="label">Hi-Hat</span>
+        </button>
+        <button class="drum-button" data-sound="clap" data-key="F">
+          <span class="key">F</span>
+          <span class="label">Clap</span>
+        </button>
+        <button class="drum-button" data-sound="openhat" data-key="G">
+          <span class="key">G</span>
+          <span class="label">Open Hat</span>
+        </button>
+        <button class="drum-button" data-sound="boom" data-key="H">
+          <span class="key">H</span>
+          <span class="label">Boom</span>
+        </button>
+        <button class="drum-button" data-sound="ride" data-key="J">
+          <span class="key">J</span>
+          <span class="label">Ride</span>
+        </button>
+        <button class="drum-button" data-sound="tink" data-key="K">
+          <span class="key">K</span>
+          <span class="label">Tink</span>
+        </button>
+        <button class="drum-button" data-sound="tom" data-key="L">
+          <span class="key">L</span>
+          <span class="label">Tom</span>
+        </button>
+      </section>
+    </main>
+
+    <audio data-sound="kick" src="assets/kick.wav"></audio>
+    <audio data-sound="snare" src="assets/snare.wav"></audio>
+    <audio data-sound="hihat" src="assets/hihat.wav"></audio>
+    <audio data-sound="clap" src="assets/clap.wav"></audio>
+    <audio data-sound="openhat" src="assets/openhat.wav"></audio>
+    <audio data-sound="boom" src="assets/boom.wav"></audio>
+    <audio data-sound="ride" src="assets/ride.wav"></audio>
+    <audio data-sound="tink" src="assets/tink.wav"></audio>
+    <audio data-sound="tom" src="assets/tom.wav"></audio>
+
+    <script src="script.js"></script>
+  </body>
+</html>

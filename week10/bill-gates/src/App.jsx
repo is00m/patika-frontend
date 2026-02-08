@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import './App.css'
 
 const STARTING_BALANCE = 100_000_000_000
@@ -65,12 +65,48 @@ const formatMoney = (value) =>
 
 function App() {
   const [balance, setBalance] = useState(STARTING_BALANCE)
+  const [displayBalance, setDisplayBalance] = useState(STARTING_BALANCE)
+  const [balanceTrend, setBalanceTrend] = useState('')
   const [cart, setCart] = useState(() =>
     PRODUCTS.reduce((acc, product) => {
       acc[product.id] = 0
       return acc
     }, {})
   )
+  const displayRef = useRef(STARTING_BALANCE)
+  const rafRef = useRef(0)
+
+  useEffect(() => {
+    const from = displayRef.current
+    const to = balance
+    if (from === to) return
+
+    setBalanceTrend(to > from ? 'up' : 'down')
+    const trendTimeout = window.setTimeout(() => setBalanceTrend(''), 500)
+
+    const start = performance.now()
+    const duration = 650
+
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      const value = Math.round(from + (to - from) * eased)
+      displayRef.current = value
+      setDisplayBalance(value)
+
+      if (progress < 1) {
+        rafRef.current = requestAnimationFrame(tick)
+      }
+    }
+
+    cancelAnimationFrame(rafRef.current)
+    rafRef.current = requestAnimationFrame(tick)
+
+    return () => {
+      cancelAnimationFrame(rafRef.current)
+      window.clearTimeout(trendTimeout)
+    }
+  }, [balance])
 
   const handleBuy = (product) => {
     if (balance < product.price) return
@@ -143,8 +179,11 @@ function App() {
         </div>
       </header>
 
-      <div className="balance-bar" aria-live="polite">
-        {formatMoney(balance)}
+      <div
+        className={`balance-bar ${balanceTrend ? `is-${balanceTrend}` : ''}`}
+        aria-live="polite"
+      >
+        {formatMoney(displayBalance)}
       </div>
 
       <main className="container">

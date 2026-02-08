@@ -20,7 +20,7 @@ const PRODUCTS = [
     tag: 'Crisp silent mode',
     category: 'Everyday',
     image:
-      'https://images.unsplash.com/photo-1518441902112-f188b01b3f8f?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=900&q=80',
   },
   {
     id: 'neural-headset',
@@ -29,7 +29,7 @@ const PRODUCTS = [
     tag: 'Immersive focus gear',
     category: 'Everyday',
     image:
-      'https://images.unsplash.com/photo-1525182008055-f88b95ff7980?auto=format&fit=crop&w=900&q=80',
+      'https://images.pexels.com/photos/7241309/pexels-photo-7241309.jpeg?cs=srgb&dl=pexels-eren-li-7241309.jpg&fm=jpg',
   },
   {
     id: 'robo-chef',
@@ -38,7 +38,7 @@ const PRODUCTS = [
     tag: 'Autonomous cuisine',
     category: 'Lifestyle',
     image:
-      'https://images.unsplash.com/photo-1506368083636-6defb67639f0?auto=format&fit=crop&w=900&q=80',
+      'https://images.pexels.com/photos/4252150/pexels-photo-4252150.jpeg?cs=srgb&dl=pexels-cottonbro-4252150.jpg&fm=jpg',
   },
   {
     id: 'cloud-atelier',
@@ -47,7 +47,7 @@ const PRODUCTS = [
     tag: 'AI design studio',
     category: 'Lifestyle',
     image:
-      'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80',
+      'https://images.pexels.com/photos/10922370/pexels-photo-10922370.jpeg?cs=srgb&dl=pexels-elgolovchenko-10922370.jpg&fm=jpg',
   },
   {
     id: 'pulse-bike',
@@ -74,7 +74,7 @@ const PRODUCTS = [
     tag: 'Ocean sprint craft',
     category: 'Mobility',
     image:
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80',
+      'https://images.pexels.com/photos/18636561/pexels-photo-18636561.jpeg?cs=srgb&dl=pexels-keeganjchecks-18636561.jpg&fm=jpg',
   },
   {
     id: 'sky-loft',
@@ -110,7 +110,7 @@ const PRODUCTS = [
     tag: 'Deep sea science',
     category: 'Science',
     image:
-      'https://images.unsplash.com/photo-1504814532849-927dcd1c08f1?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80',
   },
   {
     id: 'aurora-habitat',
@@ -155,7 +155,7 @@ const PRODUCTS = [
     tag: 'Open learning network',
     category: 'Impact',
     image:
-      'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=900&q=80',
   },
   {
     id: 'clean-energy',
@@ -164,7 +164,7 @@ const PRODUCTS = [
     tag: 'Grid-scale power',
     category: 'Impact',
     image:
-      'https://images.unsplash.com/photo-1509395176047-4a66953fd231?auto=format&fit=crop&w=900&q=80',
+      'https://images.pexels.com/photos/33813856/pexels-photo-33813856.jpeg?cs=srgb&dl=pexels-vitaliy-bratkov-903020757-33813856.jpg&fm=jpg',
   },
   {
     id: 'chip-fab',
@@ -182,7 +182,7 @@ const PRODUCTS = [
     tag: 'Ultra compute lab',
     category: 'Science',
     image:
-      'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=900&q=80',
+      'https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?cs=srgb&dl=pexels-cookiecutter-1148820.jpg&fm=jpg',
   },
   {
     id: 'planetary-shield',
@@ -309,76 +309,80 @@ function App() {
           <div className="results">Showing {visibleProducts.length} items</div>
         </section>
 
-        <section className="product-grid">
-          {visibleProducts.map((product) => {
-            const quantity = cart[product.id]
-            const canBuy = balance >= product.price
-            const canSell = quantity > 0
+        <div className="layout">
+          <section className="product-grid">
+            {visibleProducts.map((product) => {
+              const quantity = cart[product.id]
+              const canBuy = balance >= product.price
+              const canSell = quantity > 0
 
-            return (
-              <article className="product-card" key={product.id}>
-                <div className="product-image">
-                  <img src={product.image} alt={product.name} loading="lazy" />
-                </div>
-                <div className="product-body">
-                  <div>
-                    <p className="product-category">{product.category}</p>
-                    <h2>{product.name}</h2>
-                    <p className="product-tag">{product.tag}</p>
+              return (
+                <article className="product-card" key={product.id}>
+                  <div className="product-image">
+                    <img src={product.image} alt={product.name} loading="lazy" />
                   </div>
-                  <p className="product-price">{formatMoney(product.price)}</p>
-                </div>
-                <div className="product-actions">
-                  <button
-                    className="btn ghost"
-                    onClick={() => handleSell(product)}
-                    disabled={!canSell}
-                  >
-                    Sell
-                  </button>
-                  <div className="qty" aria-live="polite">
-                    {quantity}
+                  <div className="product-body">
+                    <div>
+                      <p className="product-category">{product.category}</p>
+                      <h2>{product.name}</h2>
+                      <p className="product-tag">{product.tag}</p>
+                    </div>
+                    <p className="product-price">{formatMoney(product.price)}</p>
                   </div>
-                  <button
-                    className="btn"
-                    onClick={() => handleBuy(product)}
-                    disabled={!canBuy}
-                  >
-                    Buy
-                  </button>
-                </div>
-              </article>
-            )
-          })}
-        </section>
+                  <div className="product-actions">
+                    <button
+                      className="btn ghost"
+                      onClick={() => handleSell(product)}
+                      disabled={!canSell}
+                    >
+                      Sell
+                    </button>
+                    <div className="qty" aria-live="polite">
+                      {quantity}
+                    </div>
+                    <button
+                      className="btn"
+                      onClick={() => handleBuy(product)}
+                      disabled={!canBuy}
+                    >
+                      Buy
+                    </button>
+                  </div>
+                </article>
+              )
+            })}
+          </section>
 
-        <section className="receipt">
-          <div className="receipt-header">
-            <h3>Your Receipt</h3>
-            <span className="receipt-hint">Only items you bought show up.</span>
-          </div>
-          {receiptItems.length === 0 ? (
-            <p className="receipt-empty">
-              You have not purchased anything yet. Try a Signal Watch.
-            </p>
-          ) : (
-            <div className="receipt-body">
-              {receiptItems.map((item) => (
-                <div className="receipt-row" key={item.id}>
-                  <span className="receipt-name">{item.name}</span>
-                  <span className="receipt-qty">x{item.quantity}</span>
-                  <span className="receipt-price">
-                    {formatMoney(item.total)}
-                  </span>
-                </div>
-              ))}
-              <div className="receipt-total">
-                <span>Total Spent</span>
-                <span>{formatMoney(totalSpent)}</span>
-              </div>
+          <aside className="receipt">
+            <div className="receipt-header">
+              <h3>Your Receipt</h3>
+              <span className="receipt-hint">
+                Only items you bought show up.
+              </span>
             </div>
-          )}
-        </section>
+            {receiptItems.length === 0 ? (
+              <p className="receipt-empty">
+                You have not purchased anything yet. Try a Signal Watch.
+              </p>
+            ) : (
+              <div className="receipt-body">
+                {receiptItems.map((item) => (
+                  <div className="receipt-row" key={item.id}>
+                    <span className="receipt-name">{item.name}</span>
+                    <span className="receipt-qty">x{item.quantity}</span>
+                    <span className="receipt-price">
+                      {formatMoney(item.total)}
+                    </span>
+                  </div>
+                ))}
+                <div className="receipt-total">
+                  <span>Total Spent</span>
+                  <span>{formatMoney(totalSpent)}</span>
+                </div>
+              </div>
+            )}
+          </aside>
+        </div>
       </main>
     </div>
   )

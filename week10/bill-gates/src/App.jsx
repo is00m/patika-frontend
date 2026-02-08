@@ -4,153 +4,56 @@ import './App.css'
 const STARTING_BALANCE = 100_000_000_000
 
 const PRODUCTS = [
+  { id: 'big-mac', name: 'Big Mac', price: 2, emoji: '🍔' },
+  { id: 'flip-flops', name: 'Flip Flops', price: 3, emoji: '🩴' },
+  { id: 'coke-pack', name: 'Coca-Cola Pack', price: 5, emoji: '🥤' },
+  { id: 'movie-ticket', name: 'Movie Ticket', price: 12, emoji: '🎟️' },
+  { id: 'book', name: 'Book', price: 15, emoji: '📘' },
+  { id: 'lobster-dinner', name: 'Lobster Dinner', price: 45, emoji: '🦞' },
+  { id: 'video-game', name: 'Video Game', price: 60, emoji: '🎮' },
+  { id: 'amazon-echo', name: 'Amazon Echo', price: 99, emoji: '🔊' },
+  { id: 'netflix-year', name: 'Year of Netflix', price: 100, emoji: '🎬' },
+  { id: 'air-jordans', name: 'Air Jordans', price: 125, emoji: '👟' },
+  { id: 'airpods', name: 'Airpods', price: 199, emoji: '🎧' },
+  { id: 'gaming-console', name: 'Gaming Console', price: 299, emoji: '🕹️' },
+  { id: 'drone', name: 'Drone', price: 350, emoji: '🛸' },
+  { id: 'smartphone', name: 'Smartphone', price: 699, emoji: '📱' },
+  { id: 'bike', name: 'Bike', price: 800, emoji: '🚲' },
+  { id: 'kitten', name: 'Kitten', price: 1_500, emoji: '🐱' },
+  { id: 'puppy', name: 'Puppy', price: 1_500, emoji: '🐶' },
+  { id: 'auto-rickshaw', name: 'Auto Rickshaw', price: 2_300, emoji: '🛺' },
+  { id: 'horse', name: 'Horse', price: 2_500, emoji: '🐴' },
+  { id: 'acre-farmland', name: 'Acre of Farmland', price: 3_000, emoji: '🌾' },
+  { id: 'designer-handbag', name: 'Designer Handbag', price: 5_500, emoji: '👜' },
+  { id: 'hot-tub', name: 'Hot Tub', price: 6_000, emoji: '🛁' },
+  { id: 'luxury-wine', name: 'Luxury Wine', price: 7_000, emoji: '🍷' },
+  { id: 'diamond-ring', name: 'Diamond Ring', price: 10_000, emoji: '💍' },
+  { id: 'jet-ski', name: 'Jet Ski', price: 12_000, emoji: '🛥️' },
+  { id: 'rolex', name: 'Rolex', price: 15_000, emoji: '⌚' },
+  { id: 'ford-f150', name: 'Ford F-150', price: 30_000, emoji: '🚚' },
+  { id: 'tesla', name: 'Tesla', price: 75_000, emoji: '🚗' },
+  { id: 'monster-truck', name: 'Monster Truck', price: 150_000, emoji: '🚙' },
+  { id: 'ferrari', name: 'Ferrari', price: 250_000, emoji: '🏎️' },
+  { id: 'single-family-home', name: 'Single Family Home', price: 300_000, emoji: '🏠' },
+  { id: 'gold-bar', name: 'Gold Bar', price: 700_000, emoji: '🪙' },
   {
-    id: 'signal-watch',
-    name: 'Signal Watch',
-    price: 950,
-    image:
-      'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=900&q=80',
+    id: 'mcdonalds-franchise',
+    name: 'McDonalds Franchise',
+    price: 1_500_000,
+    emoji: '🍟',
   },
-  {
-    id: 'atlas-earbuds',
-    name: 'Atlas Earbuds',
-    price: 680,
-    image:
-      'https://images.unsplash.com/photo-1484704849700-f032a568e944?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    id: 'neural-headset',
-    name: 'Neural Headset',
-    price: 8_500,
-    image:
-      'https://images.pexels.com/photos/7241309/pexels-photo-7241309.jpeg?cs=srgb&dl=pexels-eren-li-7241309.jpg&fm=jpg',
-  },
-  {
-    id: 'robo-chef',
-    name: 'Robo Chef',
-    price: 45_000,
-    image:
-      'https://images.pexels.com/photos/4252150/pexels-photo-4252150.jpeg?cs=srgb&dl=pexels-cottonbro-4252150.jpg&fm=jpg',
-  },
-  {
-    id: 'cloud-atelier',
-    name: 'Cloud Atelier',
-    price: 120_000,
-    image:
-      'https://images.pexels.com/photos/10922370/pexels-photo-10922370.jpeg?cs=srgb&dl=pexels-elgolovchenko-10922370.jpg&fm=jpg',
-  },
-  {
-    id: 'pulse-bike',
-    name: 'Pulse Bike',
-    price: 280_000,
-    image:
-      'https://images.unsplash.com/photo-1485965120184-e220f721d03e?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    id: 'solar-roadster',
-    name: 'Solar Roadster',
-    price: 2_800_000,
-    image:
-      'https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    id: 'hydro-jet',
-    name: 'Hydro Jet',
-    price: 6_500_000,
-    image:
-      'https://images.pexels.com/photos/18636561/pexels-photo-18636561.jpeg?cs=srgb&dl=pexels-keeganjchecks-18636561.jpg&fm=jpg',
-  },
-  {
-    id: 'sky-loft',
-    name: 'Sky Loft Penthouse',
-    price: 32_000_000,
-    image:
-      'https://images.unsplash.com/photo-1505691938895-1758d7feb511?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    id: 'coastal-manor',
-    name: 'Coastal Manor',
-    price: 85_000_000,
-    image:
-      'https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    id: 'island-chain',
-    name: 'Private Island Chain',
-    price: 650_000_000,
-    image:
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    id: 'ocean-dome',
-    name: 'Ocean Research Dome',
-    price: 1_250_000_000,
-    image:
-      'https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    id: 'aurora-habitat',
-    name: 'Aurora Habitat',
-    price: 1_750_000_000,
-    image:
-      'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    id: 'orbital-hotel',
-    name: 'Orbital Hotel',
-    price: 4_250_000_000,
-    image:
-      'https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    id: 'lunar-haven',
-    name: 'Lunar Haven',
-    price: 11_400_000_000,
-    image:
-      'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    id: 'mars-supply',
-    name: 'Mars Supply Line',
-    price: 12_000_000_000,
-    image:
-      'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    id: 'education-grid',
-    name: 'Global Education Grid',
-    price: 5_000_000_000,
-    image:
-      'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    id: 'clean-energy',
-    name: 'Clean Energy Basin',
-    price: 6_400_000_000,
-    image:
-      'https://images.pexels.com/photos/33813856/pexels-photo-33813856.jpeg?cs=srgb&dl=pexels-vitaliy-bratkov-903020757-33813856.jpg&fm=jpg',
-  },
-  {
-    id: 'chip-fab',
-    name: 'Microchip Fab',
-    price: 7_200_000_000,
-    image:
-      'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80',
-  },
-  {
-    id: 'quantum-cluster',
-    name: 'Quantum AI Cluster',
-    price: 9_800_000_000,
-    image:
-      'https://images.pexels.com/photos/1148820/pexels-photo-1148820.jpeg?cs=srgb&dl=pexels-cookiecutter-1148820.jpg&fm=jpg',
-  },
-  {
-    id: 'planetary-shield',
-    name: 'Planetary Shield',
-    price: 55_000_000_000,
-    image:
-      'https://images.unsplash.com/photo-1472214103451-9374bd1c798e?auto=format&fit=crop&w=900&q=80',
-  },
+  { id: 'superbowl-ad', name: 'Superbowl Ad', price: 5_250_000, emoji: '🏈' },
+  { id: 'yacht', name: 'Yacht', price: 7_500_000, emoji: '🛥️' },
+  { id: 'm1-abrams', name: 'M1 Abrams', price: 8_000_000, emoji: '🪖' },
+  { id: 'formula-1', name: 'Formula 1 Car', price: 15_000_000, emoji: '🏎️' },
+  { id: 'apache', name: 'Apache Helicopter', price: 31_000_000, emoji: '🚁' },
+  { id: 'mansion', name: 'Mansion', price: 45_000_000, emoji: '🏰' },
+  { id: 'make-a-movie', name: 'Make a Movie', price: 100_000_000, emoji: '🎥' },
+  { id: 'boeing-747', name: 'Boeing 747', price: 148_000_000, emoji: '✈️' },
+  { id: 'mona-lisa', name: 'Mona Lisa', price: 780_000_000, emoji: '🖼️' },
+  { id: 'skyscraper', name: 'Skyscraper', price: 850_000_000, emoji: '🏙️' },
+  { id: 'cruise-ship', name: 'Cruise Ship', price: 930_000_000, emoji: '🛳️' },
+  { id: 'nba-team', name: 'NBA Team', price: 2_120_000_000, emoji: '🏀' },
 ]
 
 const formatMoney = (value) =>
@@ -228,16 +131,15 @@ function App() {
 
   return (
     <div className="app">
-      <header className="site-header">
-        <div className="avatar" aria-hidden="true">
-          <img
-            src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Bill_Gates_2018.jpg"
-            alt="Bill Gates"
-          />
-        </div>
-        <div>
+      <header className="hero">
+        <div className="hero-card">
+          <div className="hero-avatar" aria-hidden="true">
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Bill_Gates_2018.jpg"
+              alt="Bill Gates"
+            />
+          </div>
           <h1>Spend Bill Gates' Money</h1>
-          <p className="subtitle">How fast can you spend it all?</p>
         </div>
       </header>
 
@@ -246,74 +148,80 @@ function App() {
       </div>
 
       <main className="container">
-        <section className="product-grid">
-          {PRODUCTS.map((product) => {
-            const quantity = cart[product.id]
-            const canBuy = balance >= product.price
-            const canSell = quantity > 0
+        <div className="layout">
+          <section className="product-grid">
+            {PRODUCTS.map((product) => {
+              const quantity = cart[product.id]
+              const canBuy = balance >= product.price
+              const canSell = quantity > 0
 
-            return (
-              <article className="product-card" key={product.id}>
-                <div className="product-image">
-                  <img src={product.image} alt={product.name} loading="lazy" />
-                </div>
-                <div className="product-info">
-                  <h2>{product.name}</h2>
-                  <p className="product-price">{formatMoney(product.price)}</p>
-                </div>
-                <div className="product-actions">
-                  <button
-                    className="btn"
-                    onClick={() => handleSell(product)}
-                    disabled={!canSell}
-                  >
-                    Sell
-                  </button>
-                  <input
-                    className="qty-input"
-                    type="number"
-                    min="0"
-                    value={quantity}
-                    onChange={(event) =>
-                      handleQuantityChange(product, event.target.value)
-                    }
-                    aria-label={`${product.name} quantity`}
-                  />
-                  <button
-                    className="btn buy"
-                    onClick={() => handleBuy(product)}
-                    disabled={!canBuy}
-                  >
-                    Buy
-                  </button>
-                </div>
-              </article>
-            )
-          })}
-        </section>
+              return (
+                <article className="product-card" key={product.id}>
+                  <div className="product-image" aria-hidden="true">
+                    <span className="emoji" role="img" aria-label={product.name}>
+                      {product.emoji}
+                    </span>
+                  </div>
+                  <div className="product-info">
+                    <h2>{product.name}</h2>
+                    <p className="product-price">{formatMoney(product.price)}</p>
+                  </div>
+                  <div className="product-actions">
+                    <button
+                      className="btn ghost"
+                      onClick={() => handleSell(product)}
+                      disabled={!canSell}
+                    >
+                      Sell
+                    </button>
+                    <input
+                      className="qty-input"
+                      type="number"
+                      min="0"
+                      value={quantity}
+                      onChange={(event) =>
+                        handleQuantityChange(product, event.target.value)
+                      }
+                      aria-label={`${product.name} quantity`}
+                    />
+                    <button
+                      className="btn buy"
+                      onClick={() => handleBuy(product)}
+                      disabled={!canBuy}
+                    >
+                      Buy
+                    </button>
+                  </div>
+                </article>
+              )}
+            )}
+          </section>
 
-        <section className="receipt">
-          <h3>Your Receipt</h3>
-          {receiptItems.length === 0 ? (
-            <p className="receipt-empty">You have not purchased anything yet.</p>
-          ) : (
-            <div className="receipt-body">
-              {receiptItems.map((item) => (
-                <div className="receipt-row" key={item.id}>
-                  <span className="receipt-name">{item.name}</span>
-                  <span className="receipt-qty">x{item.quantity}</span>
-                  <span className="receipt-price">
-                    {formatMoney(item.total)}
-                  </span>
+          <aside className="receipt">
+            <h3>Your Receipt</h3>
+            {receiptItems.length === 0 ? (
+              <p className="receipt-empty">
+                You have not purchased anything yet.
+              </p>
+            ) : (
+              <div className="receipt-body">
+                {receiptItems.map((item) => (
+                  <div className="receipt-row" key={item.id}>
+                    <span className="receipt-name">{item.name}</span>
+                    <span className="receipt-qty">x{item.quantity}</span>
+                    <span className="receipt-price">
+                      {formatMoney(item.total)}
+                    </span>
+                  </div>
+                ))}
+                <div className="receipt-total">
+                  <span>Total</span>
+                  <span>{formatMoney(totalSpent)}</span>
                 </div>
-              ))}
-              <div className="receipt-total">
-                <span>Total</span>
-                <span>{formatMoney(totalSpent)}</span>
               </div>
-            </div>
-          )}
-        </section>
+            )}
+          </aside>
+        </div>
       </main>
     </div>
   )

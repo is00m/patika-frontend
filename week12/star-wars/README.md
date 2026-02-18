@@ -12,10 +12,10 @@ A React application that lists Star Wars starships using the [SWAPI](https://swa
 
 ## Tech Stack
 
-- React 19
-- Vite 7
-- React Router DOM (client-side routing)
-- Plain CSS (no UI library)
+- React
+- Vite
+- React Router DOM
+- Plain CSS
 - [SWAPI](https://swapi.dev/) — Star Wars public REST API
 
 ## Getting Started

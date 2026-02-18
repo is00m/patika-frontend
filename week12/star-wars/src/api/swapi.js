@@ -18,6 +18,12 @@ export async function getStarshipById(id) {
   return res.json()
 }
 
+export async function fetchUrl(url) {
+  const res = await fetch(url)
+  if (!res.ok) throw new Error('Failed to fetch')
+  return res.json()
+}
+
 export function getIdFromUrl(url) {
   const parts = url.replace(/\/$/, '').split('/')
   return parts[parts.length - 1]

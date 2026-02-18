@@ -1,6 +1,7 @@
-import { useState, useEffect } from 'react'
-import { getStarships } from '../api/swapi'
+import { useState, useEffect, useRef } from 'react'
+import { getStarships, searchStarships, fetchUrl } from '../api/swapi'
 import StarshipCard from '../components/StarshipCard'
+import SearchBar from '../components/SearchBar'
 
 function HomePage() {
   const [starships, setStarships] = useState([])
@@ -8,8 +9,13 @@ function HomePage() {
   const [loading, setLoading] = useState(true)
   const [loadingMore, setLoadingMore] = useState(false)
   const [error, setError] = useState(null)
+  const [query, setQuery] = useState('')
 
-  useEffect(() => {
+  const isFirstRender = useRef(true)
+
+  const loadBrowse = () => {
+    setLoading(true)
+    setError(null)
     getStarships(1)
       .then((data) => {
         setStarships(data.results)
@@ -17,13 +23,47 @@ function HomePage() {
       })
       .catch((err) => setError(err.message))
       .finally(() => setLoading(false))
+  }
+
+  const loadSearch = (q) => {
+    setLoading(true)
+    setError(null)
+    searchStarships(q)
+      .then((data) => {
+        setStarships(data.results)
+        setNextPage(data.next)
+      })
+      .catch((err) => setError(err.message))
+      .finally(() => setLoading(false))
+  }
+
+  // Initial load
+  useEffect(() => {
+    loadBrowse()
   }, [])
+
+  // Debounced search — skips the first render
+  useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false
+      return
+    }
+
+    const timer = setTimeout(() => {
+      if (query.trim() === '') {
+        loadBrowse()
+      } else {
+        loadSearch(query.trim())
+      }
+    }, 400)
+
+    return () => clearTimeout(timer)
+  }, [query])
 
   const handleLoadMore = () => {
     if (!nextPage) return
-    const page = new URL(nextPage).searchParams.get('page')
     setLoadingMore(true)
-    getStarships(page)
+    fetchUrl(nextPage)
       .then((data) => {
         setStarships((prev) => [...prev, ...data.results])
         setNextPage(data.next)
@@ -32,6 +72,8 @@ function HomePage() {
       .finally(() => setLoadingMore(false))
   }
 
+  const isEmpty = !loading && !error && starships.length === 0
+
   return (
     <div className="page">
       <header className="site-header">
@@ -39,10 +81,13 @@ function HomePage() {
         <p>Starship Database</p>
       </header>
 
+      <SearchBar value={query} onChange={setQuery} />
+
       {loading && <p className="status-message">Loading starships...</p>}
       {error && <p className="status-message error">{error}</p>}
+      {isEmpty && <p className="status-message">No starships found.</p>}
 
-      {!loading && !error && (
+      {!loading && !error && !isEmpty && (
         <>
           <div className="starship-grid">
             {starships.map((ship) => (

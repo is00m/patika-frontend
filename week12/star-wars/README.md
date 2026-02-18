@@ -1,16 +1,48 @@
-# React + Vite
+# Star Wars Starship Database
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React application that lists Star Wars starships using the [SWAPI](https://swapi.dev/) public API. Features a custom dark theme inspired by the Star Wars universe.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Browse all starships fetched from the Star Wars API
+- Search starships by name or model (debounced — waits 400ms after typing before calling the API)
+- Load more starships with a pagination button
+- Click any starship to view its full details on a separate page
+- Navigate back to the list from the detail page
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- Vite 7
+- React Router DOM (client-side routing)
+- Plain CSS (no UI library)
+- [SWAPI](https://swapi.dev/) — Star Wars public REST API
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```bash
+npm install
+npm run dev
+```
+
+## Project Structure
+
+```
+src/
+├── api/
+│   └── swapi.js           # All API calls (list, search, detail, load more)
+├── components/
+│   ├── SearchBar.jsx      # Controlled search input
+│   └── StarshipCard.jsx   # Clickable card shown in the grid
+├── pages/
+│   ├── HomePage.jsx       # Starship grid with search and load more
+│   └── DetailPage.jsx     # Full detail view for a single starship
+├── App.jsx                # Router setup (/ and /starship/:id)
+└── index.css              # Dark theme styles
+```
+
+## Pages
+
+**Home (`/`)** — Displays a grid of starship cards. Each card shows the name, model, max speed, and class. Users can search or load more results.
+
+**Detail (`/starship/:id`)** — Shows full specs for the selected starship: manufacturer, class, crew, passengers, max speed, cargo capacity, hyperdrive rating, and length.

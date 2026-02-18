@@ -5,7 +5,7 @@ A React application that lists Star Wars starships using the [SWAPI](https://swa
 ## Features
 
 - Browse all starships fetched from the Star Wars API
-- Search starships by name or model (debounced — waits 400ms after typing before calling the API)
+- Search starships by name or model
 - Load more starships with a pagination button
 - Click any starship to view its full details on a separate page
 - Navigate back to the list from the detail page

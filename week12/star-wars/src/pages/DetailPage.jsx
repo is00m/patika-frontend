@@ -31,7 +31,7 @@ function DetailPage() {
   return (
     <div className="detail-page">
       <button className="btn-back" onClick={() => navigate('/')}>
-        ← Back
+        ◄ Back
       </button>
 
       {loading && <p className="status-message">Loading starship...</p>}
